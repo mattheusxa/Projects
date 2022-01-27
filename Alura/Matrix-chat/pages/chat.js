@@ -4,6 +4,7 @@ import appConfig from '../config.json';
 
 export default function ChatPage() {
   // Sua lógica vai aqui
+  const [message, setMessage] = React.useState('')
 
   // ./Sua lógica vai aqui
   return (
@@ -54,6 +55,10 @@ export default function ChatPage() {
             }}
           >
             <TextField
+              value={message}
+              onChange={() => {
+
+              }}
               placeholder="Insira sua mensagem aqui..."
               type="textarea"
               styleSheet={{
