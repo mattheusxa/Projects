@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import appConfig from '../config.json';
 
@@ -32,6 +33,15 @@ function GlobalStyle() {
 
 function Title(props) {
   const Tag = props.tag || 'h1';
+=======
+import React from 'react'
+import { useRouter } from 'next/router'
+import { Box, Button, Text, TextField, Image } from '@skynexui/components'
+import appConfig from '../config.json'
+
+function Title(props) {
+  const Tag = props.tag || 'h1'
+>>>>>>> 67ffadc79486f119c019f0d2313f30799aa03264
   return (
     <>
       <Tag>{props.children}</Tag>
@@ -43,6 +53,7 @@ function Title(props) {
             }
             `}</style>
     </>
+<<<<<<< HEAD
   );
 }
 
@@ -52,6 +63,17 @@ export default function PaginaInicial() {
   return (
     <>
       <GlobalStyle />
+=======
+  )
+}
+
+export default function PaginaInicial() {
+  const [username, setUsername] = React.useState('')
+  const router = useRouter()
+
+  return (
+    <>
+>>>>>>> 67ffadc79486f119c019f0d2313f30799aa03264
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -78,6 +100,15 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
+<<<<<<< HEAD
+=======
+            onSubmit={function (event) {
+              event.preventDefault()
+              router.push('/chat')
+            }
+
+            }
+>>>>>>> 67ffadc79486f119c019f0d2313f30799aa03264
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -87,8 +118,17 @@ export default function PaginaInicial() {
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
+<<<<<<< HEAD
 
             <TextField
+=======
+            <TextField
+              valuer={username}
+              onChange={function Handler(event) {
+                const valor = event.target.value
+                setUsername(valor)
+              }}
+>>>>>>> 67ffadc79486f119c019f0d2313f30799aa03264
               fullWidth
               textFieldColors={{
                 neutral: {
