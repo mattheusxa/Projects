@@ -12,7 +12,15 @@ class SplashPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          VakinhaTextformfield(),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: VakinhaTextformfield(
+              label: 'Text Form',
+            ),
+          ),
         ],
       ),
     );
