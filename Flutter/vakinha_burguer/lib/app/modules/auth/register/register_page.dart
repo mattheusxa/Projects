@@ -5,8 +5,8 @@ import 'package:vakinha_burguer/app/core/ui/widgets/vakinha_appbar.dart';
 import 'package:vakinha_burguer/app/core/ui/widgets/vakinha_button.dart';
 import 'package:vakinha_burguer/app/core/ui/widgets/vakinha_textformfield.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +63,7 @@ class LoginPage extends StatelessWidget {
                         children: [
                           const Text('Não possui uma conta?'),
                           TextButton(
-                            onPressed: () {
-                              Get.toNamed('/auth/register');
-                            },
+                            onPressed: () {},
                             child: const Text(
                               'Cadastre-se',
                               style: VakinhaUI.textBold,

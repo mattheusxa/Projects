@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:vakinha_burguer/app/modules/auth/login/login_page.dart';
+import 'package:vakinha_burguer/app/modules/auth/register/register_page.dart';
 
 class AuthRouters {
   AuthRouters._();
@@ -8,6 +9,10 @@ class AuthRouters {
     GetPage(
       name: '/auth/login',
       page: () => const LoginPage(),
+    ),
+    GetPage(
+      name: '/auth/register',
+      page: () => const RegisterPage(),
     ),
   ];
 }
