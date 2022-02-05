@@ -15,69 +15,64 @@ class RegisterPage extends StatelessWidget {
         elevation: 0,
       ),
       backgroundColor: Colors.white,
-      body: LayoutBuilder(
-        builder: (_, constraints) {
-          return ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: constraints.maxHeight,
-            ),
-            child: IntrinsicHeight(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Form(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Login',
-                        style: context.textTheme.headline6?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: context.theme.primaryColorDark,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      const VakinhaTextformfield(
-                        label: 'E-mail',
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      const VakinhaTextformfield(
-                        label: 'Senha',
-                      ),
-                      const SizedBox(
-                        height: 60,
-                      ),
-                      Center(
-                        child: VakinhaButton(
-                          width: context.width,
-                          label: 'ENTRAR',
-                          onPressed: () {},
-                        ),
-                      ),
-                      const Spacer(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text('Não possui uma conta?'),
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              'Cadastre-se',
-                              style: VakinhaUI.textBold,
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
+      body: SingleChildScrollView(
+        child: IntrinsicHeight(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Form(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Cadastro',
+                    style: context.textTheme.headline6?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: context.theme.primaryColorDark,
+                    ),
                   ),
-                ),
+                  Text(
+                    'Preencha os campos abaixo para criar o  seu cadastro.',
+                    style: context.textTheme.bodyText1,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const VakinhaTextformfield(
+                    label: 'Nome',
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const VakinhaTextformfield(
+                    label: 'E-mail',
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const VakinhaTextformfield(
+                    label: 'Senha',
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const VakinhaTextformfield(
+                    label: 'Confirmar senha',
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Center(
+                    child: VakinhaButton(
+                      width: context.width,
+                      label: 'Cadastrar',
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }
