@@ -5,7 +5,7 @@ class VakinhaButton extends StatelessWidget {
   final String label;
   final double? width;
   final double height;
-  final Colors? color;
+  final Color? color;
 
   const VakinhaButton({
     Key? key,
@@ -18,11 +18,23 @@ class VakinhaButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
+    return SizedBox(
+      width: width,
+      height: height,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: Text(
+          label,
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          shape: const StadiumBorder(),
+          primary: color,
+        ),
       ),
-      body: Container(),
     );
   }
 }
