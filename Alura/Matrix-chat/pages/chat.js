@@ -1,10 +1,24 @@
 import { Box, Text, TextField, Image, Button } from '@skynexui/components'
 import React from 'react'
 import appConfig from '../config.json'
+import { createClient } from '@supabase/supabase-js'
+
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhid29iendzem5jZnllYWF2b3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDQ5NzgyMDUsImV4cCI6MTk2MDU1NDIwNX0.e6T5pMDt5vZQLnEvXjSkToIhmZ7ISlCYer9hFq2lHP0'
+const SUPABASE_URL = 'https://hbwobzwszncfyeaavovl.supabase.co'
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 export default function ChatPage() {
   const [mensagem, setMensagem] = React.useState('')
   const [listaDeMensagens, setListaDeMensagens] = React.useState([])
+
+  React.useEffect(() => {
+    supabaseClient
+      .from('messages')
+      .select('*')
+      .then(({ data }) => {
+        setListaDeMensagens(data)
+      })
+  }, [])
 
   function handleNovaMensagem(novaMensagem) {
     const mensagem = {
@@ -16,8 +30,8 @@ export default function ChatPage() {
     setListaDeMensagens([
       mensagem,
       ...listaDeMensagens,
-    ]);
-    setMensagem('');
+    ])
+    setMensagem('')
   }
 
   return (
@@ -144,7 +158,10 @@ function MessageList(props) {
           >
             <Box
               styleSheet={{
+                display: 'flex',
+                flexDirection: 'row',
                 marginBottom: '8px',
+                alignItems: 'center'
               }}
             >
               <Image
@@ -155,18 +172,18 @@ function MessageList(props) {
                   display: 'inline-block',
                   marginRight: '8px',
                 }}
-                src={`https://github.com/vanessametonini.png`}
+                src={`https://github.com/${mensagem.de}.png`}
               />
               <Text tag="strong">
                 {mensagem.de}
               </Text>
               <Text
+                  tag="span"
                 styleSheet={{
                   fontSize: '10px',
                   marginLeft: '8px',
                   color: appConfig.theme.colors.neutrals[300],
                 }}
-                tag="span"
               >
                 {(new Date().toLocaleDateString())}
               </Text>
