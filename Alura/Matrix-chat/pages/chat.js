@@ -15,6 +15,7 @@ export default function ChatPage() {
     supabaseClient
       .from('messages')
       .select('*')
+      .order('id', { ascending: false})
       .then(({ data }) => {
         setListaDeMensagens(data)
       })
@@ -25,12 +26,20 @@ export default function ChatPage() {
       id: listaDeMensagens.length + 1,
       de: 'vanessametonini',
       texto: novaMensagem,
-    };
+    }
 
-    setListaDeMensagens([
-      mensagem,
-      ...listaDeMensagens,
-    ])
+    supabaseClient
+      .from('messages')
+      .insert([
+        mensagem
+      ])
+      .then(({ data }) => {
+        setListaDeMensagens([
+          data[0],
+          ...listaDeMensagens,
+        ])
+      })
+
     setMensagem('')
   }
 
