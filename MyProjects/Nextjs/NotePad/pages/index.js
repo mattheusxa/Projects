@@ -14,6 +14,7 @@ import { faAlignCenter,
         } from '@fortawesome/free-solid-svg-icons'
 
 export default function HomePage() {
+
   return (
     <div className={styles.container}>
       <Head> 
@@ -37,7 +38,13 @@ export default function HomePage() {
           </ul>
         </nav>
         <hr/>
-        <textarea className={styles.text} placeholder="Digite aqui..."/>
+        <textarea className={styles.text} rows='25'
+
+        
+        placeholder="Digite aqui..."
+        onChange={console.log}
+        
+        />
       </main>
 
     </div>
