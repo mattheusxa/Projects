@@ -1,4 +1,5 @@
 FROM node:alpine
+FROM mongo:alpine
 
 WORKDIR /usr/app
 
@@ -9,4 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["yarn", "dev"]

@@ -8,7 +8,7 @@ const SUPABASE_URL = 'https://hbwobzwszncfyeaavovl.supabase.co'
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 export default function ChatPage() {
-  const [mensagem, setMensagem] = React.useState('')
+  const [mensagem, setMensagem] = React.useState('oi')
   const [listaDeMensagens, setListaDeMensagens] = React.useState([])
 
   React.useEffect(() => {

@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import styles from '../styles/homePage/Home.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,6 +16,14 @@ import { faAlignCenter,
 
 export default function HomePage() {
 
+  const [message, setMessage] = React.useState('')
+  
+  function HandleBolt(event){
+    
+  }
+
+  console.log(message)
+
   return (
     <div className={styles.container}>
       <Head> 
@@ -26,7 +35,11 @@ export default function HomePage() {
         <nav className={styles.nav}>
           <ul>
             <li><FontAwesomeIcon className={styles.icon} icon={faTextHeight}/></li>
-            <li><FontAwesomeIcon className={styles.icon} icon={faBold}/></li>
+            <li><FontAwesomeIcon className={styles.icon} 
+                onClick={()=> {
+                  
+
+            }} icon={faBold}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faItalic}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faCircle}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faAlignJustify}/></li>
@@ -42,7 +55,17 @@ export default function HomePage() {
 
         
         placeholder="Digite aqui..."
-        onChange={console.log}
+        valuer={message}
+        onChange={
+          function Handler(event){
+            const valor = event.target.value
+            setMessage(valor)
+          }
+        
+        
+        
+        }
+        
         
         />
       </main>
