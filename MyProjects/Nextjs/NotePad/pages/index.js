@@ -14,6 +14,7 @@ import { faAlignCenter,
         } from '@fortawesome/free-solid-svg-icons'
 
 export default function HomePage() {
+
   return (
     <div className={styles.container}>
       <Head> 
@@ -26,10 +27,10 @@ export default function HomePage() {
           <ul>
             <li><FontAwesomeIcon className={styles.icon} icon={faTextHeight}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faBold}/></li>
-            <li><FontAwesomeIcon className={styles.icon} icon={faAlignCenter}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faItalic}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faCircle}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faAlignJustify}/></li>
+            <li><FontAwesomeIcon className={styles.icon} icon={faAlignCenter}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faAlignLeft}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faQuoteLeft}/></li>
             <li><FontAwesomeIcon className={styles.icon} icon={faLink}/></li>
@@ -37,9 +38,13 @@ export default function HomePage() {
           </ul>
         </nav>
         <hr/>
-        <div className={styles.text}>
-            <textarea placeholder="Digite aqui..."/>
-        </div> 
+        <textarea className={styles.text} rows='25'
+
+        
+        placeholder="Digite aqui..."
+        onChange={console.log}
+        
+        />
       </main>
 
     </div>
