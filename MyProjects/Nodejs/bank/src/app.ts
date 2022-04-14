@@ -4,8 +4,6 @@ import mongoose from 'mongoose'
 import 'dotenv/config'
 
 const URL = process.env.DB_COMN
-const USER = process.env.DB_USER
-const PASSWORD = process.env.DB_PASS
 
 class App {
   public express: express.Application
@@ -16,7 +14,7 @@ class App {
     this.middleware()
     this.database()
     this.routes()
-  } 
+  }
 
   private middleware (): void {
     this.express.use(express.json())
@@ -25,9 +23,9 @@ class App {
 
   private database (): void {
     mongoose.connect(`mongodb:${URL}`,
-    () => {
-      console.log('Connect to database')
-    }
+      () => {
+        console.log('Connect to database')
+      }
     )
   }
 
